@@ -44,7 +44,7 @@ const {
         );
 
         if(updateOutput?.ScheduleArn && updateOutput.$metadata.httpStatusCode === 200) {
-            console.log(`Schedule updated successfully for ${scheduleDetails.ScheduleName}`);
+            console.log(`Schedule updated successfully for ${scheduleDetails.Name}`);
         } else {
             core.setFailed(`Failed to update schedule for ${scheduleDetails.ScheduleName}. Update response: ${updateOutput}`);
         }
