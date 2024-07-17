@@ -1,0 +1,24 @@
+name: 'Update Scheduler Task Definition Revisions'
+description: 'Used to update all task definition revisions within a scheduler group'
+inputs:
+  region:
+    description: 'Region the scheduler goup is in'
+    required: true
+  group_name:
+    description: 'Name of the scheduler goup'
+    required: true
+  new_task_definition_arn:
+    description: 'ARN of the new task definition revision'
+    required: true
+  # cluster_name:
+  #   description: 'ECS cluster the target container is a part of'
+  #   required: true
+  # service_name:
+  #   description: 'ECS Service the target container is a part of'
+  #   required: true
+  # command:
+  #   description: 'Command to run within the targeted service'
+  #   required: true
+runs:
+  using: 'node20'
+  main: 'index.js'
