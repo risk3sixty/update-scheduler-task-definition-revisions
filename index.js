@@ -22,12 +22,9 @@ const {
       new ListSchedulesCommand({ GroupName: groupName })
     );
 
-    console.log(`exceptions: ${exceptions}`);
-    console.log(`scheduled before filtering: ${schedules}`);
     schedules = schedules.filter(
       (schedule) => !exceptions.includes(schedule.Name)
     );
-    console.log(`schedules after filtering: ${schedules}`);
 
     await Promise.all(
       schedules.map(async (schedule) => {

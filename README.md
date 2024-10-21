@@ -31,4 +31,6 @@ with:
 	region: 'us-east-1'
 	group_name: 'Schedule-Group-Name'
 	new_task_definition_arn: 'arn:aws:ecs:us-east-1:XXXX:task-definition/qa-web:2'
-	exceptions: ['schedule1', 'schedule2']
+	exceptions: |
+		ScheduleJob1
+		ScheduledJob2
