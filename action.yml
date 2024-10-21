@@ -10,15 +10,9 @@ inputs:
   new_task_definition_arn:
     description: 'ARN of the new task definition revision'
     required: true
-  # cluster_name:
-  #   description: 'ECS cluster the target container is a part of'
-  #   required: true
-  # service_name:
-  #   description: 'ECS Service the target container is a part of'
-  #   required: true
-  # command:
-  #   description: 'Command to run within the targeted service'
-  #   required: true
+  exceptions:
+    description: 'Names of any schedules to exclude from the update'
+    required: false
 runs:
   using: 'node20'
   main: 'index.js'
