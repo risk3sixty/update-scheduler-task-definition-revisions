@@ -14,7 +14,7 @@ const {
     const region = core.getInput('region')
     const groupName = core.getInput('group_name')
     const newTaskDefinitionArn = core.getInput('new_task_definition_arn')
-    const exceptions = core.getMultilineInput('exceptions')
+    const exceptions = core.getMultilineInput('exceptions') || [];
     const scheduler = new SchedulerClient({ region });
 
     console.log(`Getting schedules in the group ${groupName}.`);
