@@ -16,6 +16,9 @@ GitHub Action that updates all schedules within a Schedule Group with the provid
 
 **Required** The task definition to update the schedules
 
+## `exceptions`
+
+**Optional** Names of any schedules to exclude from the update
 
 ## Outputs
 
@@ -28,3 +31,6 @@ with:
 	region: 'us-east-1'
 	group_name: 'Schedule-Group-Name'
 	new_task_definition_arn: 'arn:aws:ecs:us-east-1:XXXX:task-definition/qa-web:2'
+	exceptions: |
+		ScheduleJob1
+		ScheduledJob2

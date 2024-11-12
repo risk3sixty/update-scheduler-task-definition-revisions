@@ -14,11 +14,16 @@ const {
     const region = core.getInput('region')
     const groupName = core.getInput('group_name')
     const newTaskDefinitionArn = core.getInput('new_task_definition_arn')
+    const exceptions = core.getMultilineInput('exceptions') || [];
     const scheduler = new SchedulerClient({ region });
 
     console.log(`Getting schedules in the group ${groupName}.`);
-    const { Schedules: schedules } = await scheduler.send(
+    let { Schedules: schedules } = await scheduler.send(
       new ListSchedulesCommand({ GroupName: groupName })
+    );
+
+    schedules = schedules.filter(
+      (schedule) => !exceptions.includes(schedule.Name)
     );
 
     await Promise.all(
